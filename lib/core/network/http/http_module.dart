@@ -30,7 +30,13 @@ abstract class HttpModule {
     var data = <String, dynamic>{};
 
     try {
-      data = jsonDecode(response.toString()) as JSON;
+      if (response.data is List<dynamic>) {
+        data = <String, dynamic>{
+          'data': response.data,
+        };
+      } else {
+        data = jsonDecode(response.toString()) as JSON;
+      }
     } catch (e) {
       log
         ..console('Parse Error', type: LogType.fatal)

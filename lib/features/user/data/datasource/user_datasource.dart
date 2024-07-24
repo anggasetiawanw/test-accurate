@@ -20,7 +20,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   @override
   Future<ApiResponseModel<List<UserModel>>> get() async {
     final response = await _httpModule.get(ApiEndpoint.user());
-
+    
     final result = ApiResponseModel<List<UserModel>>.fromJson(
       response,
       (json) {

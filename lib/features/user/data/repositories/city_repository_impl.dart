@@ -19,7 +19,7 @@ class CityRepositoryImpl implements CityRepository {
     try {
       final result = await _httpDataSource.get();
 
-      if (!result.success) {
+      if (result.errors != null) {
         return Left(
           UserFailure(
             message: result.errors?.first.message ?? 'Error',

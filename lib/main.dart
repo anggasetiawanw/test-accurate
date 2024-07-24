@@ -1,7 +1,15 @@
 import 'dart:async';
-import 'package:flutter/material.dart';
+
+import 'package:test_accurate/bootstrap.dart';
+
 import 'app.dart';
+import 'core/di/service_locator.dart';
 
 FutureOr<void> main() async {
-  runApp(const App());
+  bootstrap(
+    () async {
+      await Future.wait([configureDependencies()]);
+      return const App();
+    },
+  );
 }

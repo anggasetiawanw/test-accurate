@@ -11,7 +11,6 @@ _$ApiResponseModelImpl<T> _$$ApiResponseModelImplFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     _$ApiResponseModelImpl<T>(
-      success: json['success'] as bool,
       data: fromJsonT(json['data']),
       errors: (json['errors'] as List<dynamic>?)
           ?.map((e) => ErrorModel.fromJson(e as Map<String, dynamic>))
@@ -23,7 +22,6 @@ Map<String, dynamic> _$$ApiResponseModelImplToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'success': instance.success,
       'data': toJsonT(instance.data),
       'errors': instance.errors,
     };

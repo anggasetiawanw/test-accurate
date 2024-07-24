@@ -18,10 +18,11 @@ class CityRemoteDataSourceImpl implements CityRemoteDataSource {
   @override
   Future<ApiResponseModel<List<CityModel>>> get() async {
     final response = await _httpModule.get(ApiEndpoint.city());
-
+    
     final result = ApiResponseModel<List<CityModel>>.fromJson(
       response,
       (json) {
+        
         if (json is! List) {
           return [];
         }

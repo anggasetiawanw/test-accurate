@@ -22,8 +22,6 @@ ApiResponseModel<T> _$ApiResponseModelFromJson<T>(
 /// @nodoc
 mixin _$ApiResponseModel<T> {
   @JsonKey()
-  bool get success => throw _privateConstructorUsedError;
-  @JsonKey()
   T get data => throw _privateConstructorUsedError;
   @JsonKey()
   List<ErrorModel>? get errors => throw _privateConstructorUsedError;
@@ -41,10 +39,7 @@ abstract class $ApiResponseModelCopyWith<T, $Res> {
           ApiResponseModel<T> value, $Res Function(ApiResponseModel<T>) then) =
       _$ApiResponseModelCopyWithImpl<T, $Res, ApiResponseModel<T>>;
   @useResult
-  $Res call(
-      {@JsonKey() bool success,
-      @JsonKey() T data,
-      @JsonKey() List<ErrorModel>? errors});
+  $Res call({@JsonKey() T data, @JsonKey() List<ErrorModel>? errors});
 }
 
 /// @nodoc
@@ -60,15 +55,10 @@ class _$ApiResponseModelCopyWithImpl<T, $Res, $Val extends ApiResponseModel<T>>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
     Object? data = freezed,
     Object? errors = freezed,
   }) {
     return _then(_value.copyWith(
-      success: null == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as bool,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -89,10 +79,7 @@ abstract class _$$ApiResponseModelImplCopyWith<T, $Res>
       __$$ApiResponseModelImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey() bool success,
-      @JsonKey() T data,
-      @JsonKey() List<ErrorModel>? errors});
+  $Res call({@JsonKey() T data, @JsonKey() List<ErrorModel>? errors});
 }
 
 /// @nodoc
@@ -106,15 +93,10 @@ class __$$ApiResponseModelImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? success = null,
     Object? data = freezed,
     Object? errors = freezed,
   }) {
     return _then(_$ApiResponseModelImpl<T>(
-      success: null == success
-          ? _value.success
-          : success // ignore: cast_nullable_to_non_nullable
-              as bool,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -131,8 +113,7 @@ class __$$ApiResponseModelImplCopyWithImpl<T, $Res>
 @JsonSerializable(genericArgumentFactories: true)
 class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
   _$ApiResponseModelImpl(
-      {@JsonKey() required this.success,
-      @JsonKey() required this.data,
+      {@JsonKey() required this.data,
       @JsonKey() final List<ErrorModel>? errors})
       : _errors = errors;
 
@@ -140,9 +121,6 @@ class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
       _$$ApiResponseModelImplFromJson(json, fromJsonT);
 
-  @override
-  @JsonKey()
-  final bool success;
   @override
   @JsonKey()
   final T data;
@@ -159,7 +137,7 @@ class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
 
   @override
   String toString() {
-    return 'ApiResponseModel<$T>(success: $success, data: $data, errors: $errors)';
+    return 'ApiResponseModel<$T>(data: $data, errors: $errors)';
   }
 
   @override
@@ -167,7 +145,6 @@ class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ApiResponseModelImpl<T> &&
-            (identical(other.success, success) || other.success == success) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other._errors, _errors));
   }
@@ -176,7 +153,6 @@ class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      success,
       const DeepCollectionEquality().hash(data),
       const DeepCollectionEquality().hash(_errors));
 
@@ -195,17 +171,13 @@ class _$ApiResponseModelImpl<T> implements _ApiResponseModel<T> {
 
 abstract class _ApiResponseModel<T> implements ApiResponseModel<T> {
   factory _ApiResponseModel(
-      {@JsonKey() required final bool success,
-      @JsonKey() required final T data,
+      {@JsonKey() required final T data,
       @JsonKey() final List<ErrorModel>? errors}) = _$ApiResponseModelImpl<T>;
 
   factory _ApiResponseModel.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =
       _$ApiResponseModelImpl<T>.fromJson;
 
-  @override
-  @JsonKey()
-  bool get success;
   @override
   @JsonKey()
   T get data;
