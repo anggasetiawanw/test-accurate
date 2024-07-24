@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-City _$CityFromJson(Map<String, dynamic> json) {
-  return _City.fromJson(json);
+CityModel _$CityModelFromJson(Map<String, dynamic> json) {
+  return _CityModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$City {
+mixin _$CityModel {
   @JsonKey()
   String get id => throw _privateConstructorUsedError;
   @JsonKey()
@@ -27,21 +27,22 @@ mixin _$City {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CityCopyWith<City> get copyWith => throw _privateConstructorUsedError;
+  $CityModelCopyWith<CityModel> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CityCopyWith<$Res> {
-  factory $CityCopyWith(City value, $Res Function(City) then) =
-      _$CityCopyWithImpl<$Res, City>;
+abstract class $CityModelCopyWith<$Res> {
+  factory $CityModelCopyWith(CityModel value, $Res Function(CityModel) then) =
+      _$CityModelCopyWithImpl<$Res, CityModel>;
   @useResult
   $Res call({@JsonKey() String id, @JsonKey() String name});
 }
 
 /// @nodoc
-class _$CityCopyWithImpl<$Res, $Val extends City>
-    implements $CityCopyWith<$Res> {
-  _$CityCopyWithImpl(this._value, this._then);
+class _$CityModelCopyWithImpl<$Res, $Val extends CityModel>
+    implements $CityModelCopyWith<$Res> {
+  _$CityModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,20 +69,22 @@ class _$CityCopyWithImpl<$Res, $Val extends City>
 }
 
 /// @nodoc
-abstract class _$$CityImplCopyWith<$Res> implements $CityCopyWith<$Res> {
-  factory _$$CityImplCopyWith(
-          _$CityImpl value, $Res Function(_$CityImpl) then) =
-      __$$CityImplCopyWithImpl<$Res>;
+abstract class _$$CityModelImplCopyWith<$Res>
+    implements $CityModelCopyWith<$Res> {
+  factory _$$CityModelImplCopyWith(
+          _$CityModelImpl value, $Res Function(_$CityModelImpl) then) =
+      __$$CityModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey() String id, @JsonKey() String name});
 }
 
 /// @nodoc
-class __$$CityImplCopyWithImpl<$Res>
-    extends _$CityCopyWithImpl<$Res, _$CityImpl>
-    implements _$$CityImplCopyWith<$Res> {
-  __$$CityImplCopyWithImpl(_$CityImpl _value, $Res Function(_$CityImpl) _then)
+class __$$CityModelImplCopyWithImpl<$Res>
+    extends _$CityModelCopyWithImpl<$Res, _$CityModelImpl>
+    implements _$$CityModelImplCopyWith<$Res> {
+  __$$CityModelImplCopyWithImpl(
+      _$CityModelImpl _value, $Res Function(_$CityModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +93,7 @@ class __$$CityImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$CityImpl(
+    return _then(_$CityModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -105,11 +108,11 @@ class __$$CityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CityImpl implements _City {
-  _$CityImpl({@JsonKey() required this.id, @JsonKey() required this.name});
+class _$CityModelImpl implements _CityModel {
+  _$CityModelImpl({@JsonKey() required this.id, @JsonKey() required this.name});
 
-  factory _$CityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CityImplFromJson(json);
+  factory _$CityModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CityModelImplFromJson(json);
 
   @override
   @JsonKey()
@@ -120,14 +123,14 @@ class _$CityImpl implements _City {
 
   @override
   String toString() {
-    return 'City(id: $id, name: $name)';
+    return 'CityModel(id: $id, name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CityImpl &&
+            other is _$CityModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -139,23 +142,24 @@ class _$CityImpl implements _City {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CityImplCopyWith<_$CityImpl> get copyWith =>
-      __$$CityImplCopyWithImpl<_$CityImpl>(this, _$identity);
+  _$$CityModelImplCopyWith<_$CityModelImpl> get copyWith =>
+      __$$CityModelImplCopyWithImpl<_$CityModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CityImplToJson(
+    return _$$CityModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _City implements City {
-  factory _City(
+abstract class _CityModel implements CityModel {
+  factory _CityModel(
       {@JsonKey() required final String id,
-      @JsonKey() required final String name}) = _$CityImpl;
+      @JsonKey() required final String name}) = _$CityModelImpl;
 
-  factory _City.fromJson(Map<String, dynamic> json) = _$CityImpl.fromJson;
+  factory _CityModel.fromJson(Map<String, dynamic> json) =
+      _$CityModelImpl.fromJson;
 
   @override
   @JsonKey()
@@ -165,6 +169,6 @@ abstract class _City implements City {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$CityImplCopyWith<_$CityImpl> get copyWith =>
+  _$$CityModelImplCopyWith<_$CityModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

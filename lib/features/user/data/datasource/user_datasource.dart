@@ -8,9 +8,9 @@ import '../../../../core/network/http/modules/app_http_modules.dart';
 import '../../../../core/typedef/typedef.dart';
 
 abstract class UserRemoteDataSource {
-  Future<ApiResponseModel<List<User>>> get();
-  Future<ApiResponseModel<List<User>>> getByName({required String name});
-  Future<ApiResponseModel<List<User>>> getByCity({required String city});
+  Future<ApiResponseModel<List<UserModel>>> get();
+  Future<ApiResponseModel<List<UserModel>>> getByName({required String name});
+  Future<ApiResponseModel<List<UserModel>>> getByCity({required String city});
 }
 
 @LazySingleton(as: UserRemoteDataSource)
@@ -18,17 +18,17 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   final _httpModule = getIt<AppHttpModule>();
 
   @override
-  Future<ApiResponseModel<List<User>>> get() async {
+  Future<ApiResponseModel<List<UserModel>>> get() async {
     final response = await _httpModule.get(ApiEndpoint.user());
 
-    final result = ApiResponseModel<List<User>>.fromJson(
+    final result = ApiResponseModel<List<UserModel>>.fromJson(
       response,
       (json) {
         if (json is! List) {
           return [];
         }
 
-        return json.map((e) => User.fromJson(e as JSON)).toList();
+        return json.map((e) => UserModel.fromJson(e as JSON)).toList();
       },
     );
 
@@ -36,17 +36,17 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-  Future<ApiResponseModel<List<User>>> getByCity({required String city}) async {
+  Future<ApiResponseModel<List<UserModel>>> getByCity({required String city}) async {
     final response = await _httpModule.get(ApiEndpoint.user(), param: {'city': city});
 
-    final result = ApiResponseModel<List<User>>.fromJson(
+    final result = ApiResponseModel<List<UserModel>>.fromJson(
       response,
       (json) {
         if (json is! List) {
           return [];
         }
 
-        return json.map((e) => User.fromJson(e as JSON)).toList();
+        return json.map((e) => UserModel.fromJson(e as JSON)).toList();
       },
     );
 
@@ -54,17 +54,17 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   }
 
   @override
-  Future<ApiResponseModel<List<User>>> getByName({required String name}) async {
+  Future<ApiResponseModel<List<UserModel>>> getByName({required String name}) async {
     final response = await _httpModule.get(ApiEndpoint.user(), param: {'name': name});
 
-    final result = ApiResponseModel<List<User>>.fromJson(
+    final result = ApiResponseModel<List<UserModel>>.fromJson(
       response,
       (json) {
         if (json is! List) {
           return [];
         }
 
-        return json.map((e) => User.fromJson(e as JSON)).toList();
+        return json.map((e) => UserModel.fromJson(e as JSON)).toList();
       },
     );
 

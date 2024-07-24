@@ -1,19 +1,30 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../domain/entities/user_entities.dart';
+
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';
 
 @freezed
-class User with _$User {
+abstract class UserModel with _$UserModel {
+  factory UserModel({
+    @JsonKey() required String id,
+    @JsonKey() required String name,
+    @JsonKey() required String email,
+    @JsonKey() required String phoneNumber,
+    @JsonKey() required String address,
+    @JsonKey() required String city,
+  }) = _UserModel;
 
-    factory User({
-        @JsonKey() required String id,
-        @JsonKey() required String name,
-        @JsonKey() required String email,
-        @JsonKey() required String phoneNumber,
-        @JsonKey() required String address,
-        @JsonKey() required String city,
-    }) = _User;
+  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
+}
 
-    factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+extension UserModelX on UserModel {
+  User toEntity() => User(
+        id: id,
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber,
+        city: city,
+      );
 }
