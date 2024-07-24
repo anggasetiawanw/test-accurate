@@ -6,4 +6,5 @@ class UserState with _$UserState {
   const factory UserState.loading() = UserLoadingState;
   const factory UserState.loaded({required List<User> users}) = UserLoadedState;
   const factory UserState.failed({required Failure failure}) = UserFailedState;
+  const factory UserState.added() = UserAddedState;
 }

@@ -69,4 +69,31 @@ class UserRepositoryImpl implements UserRepository {
       return Left(UserFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, User>> addUser({required User user}) async {
+    try {
+      UserModel userModel = UserModel(
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        city: user.city,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+      );
+      final result = await _httpDataSource.addUser(user: userModel);
+
+      if (result.errors != null) {
+        return Left(
+          UserFailure(
+            message: result.errors?.first.message ?? 'Error',
+          ),
+        );
+      }
+
+      return Right(result.data.toEntity());
+    } catch (e) {
+      return Left(UserFailure(message: e.toString()));
+    }
+  }
 }

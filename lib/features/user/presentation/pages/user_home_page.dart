@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_accurate/core/router/app_router.gr.dart';
 
+import '../../domain/entities/city_entities.dart';
+import '../blocs/city/city_bloc.dart';
 import '../blocs/users/user_bloc.dart';
 
 @RoutePage()
@@ -15,10 +18,13 @@ class UserHomePage extends StatefulWidget {
 class _UserHomePageState extends State<UserHomePage> {
   final TextEditingController _searchController = TextEditingController();
   bool _ascending = true;
+  String _selectedCity = '';
+
   @override
   void initState() {
     super.initState();
     context.read<UserBloc>().add(const UserEvent.getUser());
+    context.read<CityBloc>().add(const CityEvent.getCity());
   }
 
   void _fetchSearchByName(String name) {
@@ -26,6 +32,7 @@ class _UserHomePageState extends State<UserHomePage> {
   }
 
   void _clearSearch() {
+    _selectedCity = '';
     _searchController.clear();
     context.read<UserBloc>().add(const UserEvent.getUser());
   }
@@ -43,6 +50,14 @@ class _UserHomePageState extends State<UserHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('User'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AutoRouter.of(context).push(const AddUserRoute()).then((value) {
+            context.read<UserBloc>().add(const UserEvent.getUser());
+          });
+        },
+        child: const Icon(Icons.add),
       ),
       body: Column(
         children: [
@@ -70,7 +85,13 @@ class _UserHomePageState extends State<UserHomePage> {
                   onPressed: _clearSearch,
                   child: const Text('Clear'),
                 ),
-                const SizedBox(width: 8),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
                 DropdownButton<bool>(
                   value: _ascending,
                   onChanged: (value) {
@@ -92,6 +113,37 @@ class _UserHomePageState extends State<UserHomePage> {
                     ),
                   ],
                 ),
+                const SizedBox(width: 16),
+                BlocBuilder<CityBloc, CityState>(
+                  builder: (context, state) {
+                    return state.map(
+                      initial: (_) => const SizedBox(),
+                      loading: (_) => const SizedBox(),
+                      loaded: (data) {
+                        return DropdownButton<String>(
+                          value: _selectedCity.isEmpty ? null : _selectedCity,
+                          hint: const Text('Filter by city'),
+                          onChanged: (value) {
+                            if (value != null) {
+                              setState(() {
+                                _selectedCity = value;
+                              });
+                              _filterUsersByCity(_selectedCity);
+                            }
+                          },
+                          items: [
+                            const DropdownMenuItem(
+                              value: '',
+                              child: Text('All Cities'),
+                            ),
+                            ..._getCityDropdownItems(data.cities), // Method to get dropdown items for cities
+                          ],
+                        );
+                      },
+                      failed: (_) => const SizedBox(),
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -99,6 +151,9 @@ class _UserHomePageState extends State<UserHomePage> {
             child: BlocBuilder<UserBloc, UserState>(
               builder: (context, state) {
                 return state.map(
+                  added: (_) {
+                    return const SizedBox();
+                  },
                   initial: (_) => const Center(
                     child: CircularProgressIndicator(),
                   ),
@@ -123,6 +178,7 @@ class _UserHomePageState extends State<UserHomePage> {
                             Text('Email: ${user.email}'),
                             Text('Phone Number: ${user.phoneNumber}'),
                             Text('City: ${user.city}'),
+                            Text('Address: ${user.address}'),
                           ],
                         ),
                       );
@@ -138,5 +194,15 @@ class _UserHomePageState extends State<UserHomePage> {
         ],
       ),
     );
+  }
+
+  List<DropdownMenuItem<String>> _getCityDropdownItems(List<City> cities) {
+    // Replace this with your actual list of cities from your user data
+    return cities.map((city) {
+      return DropdownMenuItem(
+        value: city.name,
+        child: Text(city.name),
+      );
+    }).toList();
   }
 }

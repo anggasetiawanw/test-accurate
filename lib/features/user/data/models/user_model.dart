@@ -26,5 +26,6 @@ extension UserModelX on UserModel {
         email: email,
         phoneNumber: phoneNumber,
         city: city,
+        address: address,
       );
 }

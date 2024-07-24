@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/router/app_router.dart';
 import 'core/router/oberservers/app_router_observers.dart';
+import 'features/user/presentation/blocs/city/city_bloc.dart';
 import 'features/user/presentation/blocs/users/user_bloc.dart';
 import 'utils/screen_util.dart';
 
@@ -17,6 +18,7 @@ class App extends StatelessWidget {
         builder: (_) => MultiBlocProvider(
           providers: [
             BlocProvider(create: (_) => UserBloc()),
+            BlocProvider(create: (_) => CityBloc()),
           ],
           child: MaterialApp.router(
             title: 'App Test Accurate',

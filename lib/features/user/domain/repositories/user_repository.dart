@@ -6,4 +6,5 @@ abstract class UserRepository {
   Future<Either<Failure, List<User>>> getUser();
   Future<Either<Failure, List<User>>> getUserByName({required String name});
   Future<Either<Failure, List<User>>> getUserByCity({required String city});
+  Future<Either<Failure, User>> addUser({required User user});
 }

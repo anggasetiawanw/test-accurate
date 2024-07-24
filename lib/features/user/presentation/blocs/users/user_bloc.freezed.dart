@@ -109,18 +109,12 @@ class __$$GetUserEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetUserEventImpl with DiagnosticableTreeMixin implements _GetUserEvent {
+class _$GetUserEventImpl implements _GetUserEvent {
   const _$GetUserEventImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserEvent.getUser()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'UserEvent.getUser'));
   }
 
   @override
@@ -250,25 +244,15 @@ class __$$GetUserByNameEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetUserByNameEventImpl
-    with DiagnosticableTreeMixin
-    implements _GetUserByNameEvent {
+class _$GetUserByNameEventImpl implements _GetUserByNameEvent {
   const _$GetUserByNameEventImpl({required this.name});
 
   @override
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserEvent.getUserByName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserEvent.getUserByName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -413,25 +397,15 @@ class __$$GetUserByCityEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetUserByCityEventImpl
-    with DiagnosticableTreeMixin
-    implements _GetUserByCityEvent {
+class _$GetUserByCityEventImpl implements _GetUserByCityEvent {
   const _$GetUserByCityEventImpl({required this.city});
 
   @override
   final String city;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserEvent.getUserByCity(city: $city)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserEvent.getUserByCity'))
-      ..add(DiagnosticsProperty('city', city));
   }
 
   @override
@@ -576,25 +550,15 @@ class __$$SortUserDataEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SortUserDataEventImpl
-    with DiagnosticableTreeMixin
-    implements _SortUserDataEvent {
+class _$SortUserDataEventImpl implements _SortUserDataEvent {
   const _$SortUserDataEventImpl({required this.isAscending});
 
   @override
   final bool isAscending;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserEvent.sortUserData(isAscending: $isAscending)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserEvent.sortUserData'))
-      ..add(DiagnosticsProperty('isAscending', isAscending));
   }
 
   @override
@@ -740,23 +704,15 @@ class __$$AddUserEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddUserEventImpl with DiagnosticableTreeMixin implements _AddUserEvent {
+class _$AddUserEventImpl implements _AddUserEvent {
   const _$AddUserEventImpl({required this.user});
 
   @override
   final User user;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserEvent.addUser(user: $user)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserEvent.addUser'))
-      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
@@ -874,6 +830,7 @@ mixin _$UserState {
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
     required TResult Function(Failure failure) failed,
+    required TResult Function() added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -882,6 +839,7 @@ mixin _$UserState {
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
     TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -890,6 +848,7 @@ mixin _$UserState {
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
     TResult Function(Failure failure)? failed,
+    TResult Function()? added,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -899,6 +858,7 @@ mixin _$UserState {
     required TResult Function(UserLoadingState value) loading,
     required TResult Function(UserLoadedState value) loaded,
     required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -907,6 +867,7 @@ mixin _$UserState {
     TResult? Function(UserLoadingState value)? loading,
     TResult? Function(UserLoadedState value)? loaded,
     TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -915,6 +876,7 @@ mixin _$UserState {
     TResult Function(UserLoadingState value)? loading,
     TResult Function(UserLoadedState value)? loaded,
     TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -955,20 +917,12 @@ class __$$UserInitialStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserInitialStateImpl
-    with DiagnosticableTreeMixin
-    implements UserInitialState {
+class _$UserInitialStateImpl implements UserInitialState {
   const _$UserInitialStateImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'UserState.initial'));
   }
 
   @override
@@ -987,6 +941,7 @@ class _$UserInitialStateImpl
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
     required TResult Function(Failure failure) failed,
+    required TResult Function() added,
   }) {
     return initial();
   }
@@ -998,6 +953,7 @@ class _$UserInitialStateImpl
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
     TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
   }) {
     return initial?.call();
   }
@@ -1009,6 +965,7 @@ class _$UserInitialStateImpl
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
     TResult Function(Failure failure)? failed,
+    TResult Function()? added,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1024,6 +981,7 @@ class _$UserInitialStateImpl
     required TResult Function(UserLoadingState value) loading,
     required TResult Function(UserLoadedState value) loaded,
     required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
   }) {
     return initial(this);
   }
@@ -1035,6 +993,7 @@ class _$UserInitialStateImpl
     TResult? Function(UserLoadingState value)? loading,
     TResult? Function(UserLoadedState value)? loaded,
     TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
   }) {
     return initial?.call(this);
   }
@@ -1046,6 +1005,7 @@ class _$UserInitialStateImpl
     TResult Function(UserLoadingState value)? loading,
     TResult Function(UserLoadedState value)? loaded,
     TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1077,20 +1037,12 @@ class __$$UserLoadingStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserLoadingStateImpl
-    with DiagnosticableTreeMixin
-    implements UserLoadingState {
+class _$UserLoadingStateImpl implements UserLoadingState {
   const _$UserLoadingStateImpl();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'UserState.loading'));
   }
 
   @override
@@ -1109,6 +1061,7 @@ class _$UserLoadingStateImpl
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
     required TResult Function(Failure failure) failed,
+    required TResult Function() added,
   }) {
     return loading();
   }
@@ -1120,6 +1073,7 @@ class _$UserLoadingStateImpl
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
     TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
   }) {
     return loading?.call();
   }
@@ -1131,6 +1085,7 @@ class _$UserLoadingStateImpl
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
     TResult Function(Failure failure)? failed,
+    TResult Function()? added,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1146,6 +1101,7 @@ class _$UserLoadingStateImpl
     required TResult Function(UserLoadingState value) loading,
     required TResult Function(UserLoadedState value) loaded,
     required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
   }) {
     return loading(this);
   }
@@ -1157,6 +1113,7 @@ class _$UserLoadingStateImpl
     TResult? Function(UserLoadingState value)? loading,
     TResult? Function(UserLoadedState value)? loaded,
     TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
   }) {
     return loading?.call(this);
   }
@@ -1168,6 +1125,7 @@ class _$UserLoadingStateImpl
     TResult Function(UserLoadingState value)? loading,
     TResult Function(UserLoadedState value)? loaded,
     TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1214,9 +1172,7 @@ class __$$UserLoadedStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserLoadedStateImpl
-    with DiagnosticableTreeMixin
-    implements UserLoadedState {
+class _$UserLoadedStateImpl implements UserLoadedState {
   const _$UserLoadedStateImpl({required final List<User> users})
       : _users = users;
 
@@ -1229,16 +1185,8 @@ class _$UserLoadedStateImpl
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserState.loaded(users: $users)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserState.loaded'))
-      ..add(DiagnosticsProperty('users', users));
   }
 
   @override
@@ -1267,6 +1215,7 @@ class _$UserLoadedStateImpl
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
     required TResult Function(Failure failure) failed,
+    required TResult Function() added,
   }) {
     return loaded(users);
   }
@@ -1278,6 +1227,7 @@ class _$UserLoadedStateImpl
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
     TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
   }) {
     return loaded?.call(users);
   }
@@ -1289,6 +1239,7 @@ class _$UserLoadedStateImpl
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
     TResult Function(Failure failure)? failed,
+    TResult Function()? added,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1304,6 +1255,7 @@ class _$UserLoadedStateImpl
     required TResult Function(UserLoadingState value) loading,
     required TResult Function(UserLoadedState value) loaded,
     required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
   }) {
     return loaded(this);
   }
@@ -1315,6 +1267,7 @@ class _$UserLoadedStateImpl
     TResult? Function(UserLoadingState value)? loading,
     TResult? Function(UserLoadedState value)? loaded,
     TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
   }) {
     return loaded?.call(this);
   }
@@ -1326,6 +1279,7 @@ class _$UserLoadedStateImpl
     TResult Function(UserLoadingState value)? loading,
     TResult Function(UserLoadedState value)? loaded,
     TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1378,25 +1332,15 @@ class __$$UserFailedStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserFailedStateImpl
-    with DiagnosticableTreeMixin
-    implements UserFailedState {
+class _$UserFailedStateImpl implements UserFailedState {
   const _$UserFailedStateImpl({required this.failure});
 
   @override
   final Failure failure;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserState.failed(failure: $failure)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserState.failed'))
-      ..add(DiagnosticsProperty('failure', failure));
   }
 
   @override
@@ -1424,6 +1368,7 @@ class _$UserFailedStateImpl
     required TResult Function() loading,
     required TResult Function(List<User> users) loaded,
     required TResult Function(Failure failure) failed,
+    required TResult Function() added,
   }) {
     return failed(failure);
   }
@@ -1435,6 +1380,7 @@ class _$UserFailedStateImpl
     TResult? Function()? loading,
     TResult? Function(List<User> users)? loaded,
     TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
   }) {
     return failed?.call(failure);
   }
@@ -1446,6 +1392,7 @@ class _$UserFailedStateImpl
     TResult Function()? loading,
     TResult Function(List<User> users)? loaded,
     TResult Function(Failure failure)? failed,
+    TResult Function()? added,
     required TResult orElse(),
   }) {
     if (failed != null) {
@@ -1461,6 +1408,7 @@ class _$UserFailedStateImpl
     required TResult Function(UserLoadingState value) loading,
     required TResult Function(UserLoadedState value) loaded,
     required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
   }) {
     return failed(this);
   }
@@ -1472,6 +1420,7 @@ class _$UserFailedStateImpl
     TResult? Function(UserLoadingState value)? loading,
     TResult? Function(UserLoadedState value)? loaded,
     TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
   }) {
     return failed?.call(this);
   }
@@ -1483,6 +1432,7 @@ class _$UserFailedStateImpl
     TResult Function(UserLoadingState value)? loading,
     TResult Function(UserLoadedState value)? loaded,
     TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
     required TResult orElse(),
   }) {
     if (failed != null) {
@@ -1500,4 +1450,124 @@ abstract class UserFailedState implements UserState {
   @JsonKey(ignore: true)
   _$$UserFailedStateImplCopyWith<_$UserFailedStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UserAddedStateImplCopyWith<$Res> {
+  factory _$$UserAddedStateImplCopyWith(_$UserAddedStateImpl value,
+          $Res Function(_$UserAddedStateImpl) then) =
+      __$$UserAddedStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserAddedStateImplCopyWithImpl<$Res>
+    extends _$UserStateCopyWithImpl<$Res, _$UserAddedStateImpl>
+    implements _$$UserAddedStateImplCopyWith<$Res> {
+  __$$UserAddedStateImplCopyWithImpl(
+      _$UserAddedStateImpl _value, $Res Function(_$UserAddedStateImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserAddedStateImpl implements UserAddedState {
+  const _$UserAddedStateImpl();
+
+  @override
+  String toString() {
+    return 'UserState.added()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UserAddedStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<User> users) loaded,
+    required TResult Function(Failure failure) failed,
+    required TResult Function() added,
+  }) {
+    return added();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<User> users)? loaded,
+    TResult? Function(Failure failure)? failed,
+    TResult? Function()? added,
+  }) {
+    return added?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<User> users)? loaded,
+    TResult Function(Failure failure)? failed,
+    TResult Function()? added,
+    required TResult orElse(),
+  }) {
+    if (added != null) {
+      return added();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UserInitialState value) initial,
+    required TResult Function(UserLoadingState value) loading,
+    required TResult Function(UserLoadedState value) loaded,
+    required TResult Function(UserFailedState value) failed,
+    required TResult Function(UserAddedState value) added,
+  }) {
+    return added(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UserInitialState value)? initial,
+    TResult? Function(UserLoadingState value)? loading,
+    TResult? Function(UserLoadedState value)? loaded,
+    TResult? Function(UserFailedState value)? failed,
+    TResult? Function(UserAddedState value)? added,
+  }) {
+    return added?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UserInitialState value)? initial,
+    TResult Function(UserLoadingState value)? loading,
+    TResult Function(UserLoadedState value)? loaded,
+    TResult Function(UserFailedState value)? failed,
+    TResult Function(UserAddedState value)? added,
+    required TResult orElse(),
+  }) {
+    if (added != null) {
+      return added(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserAddedState implements UserState {
+  const factory UserAddedState() = _$UserAddedStateImpl;
 }

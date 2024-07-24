@@ -34,6 +34,10 @@ abstract class HttpModule {
         data = <String, dynamic>{
           'data': response.data,
         };
+      } else if (response.data is Map) {
+        data = {
+          'data': response.data,
+        };
       } else {
         data = jsonDecode(response.toString()) as JSON;
       }
